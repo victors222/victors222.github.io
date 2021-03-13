@@ -1,31 +1,13 @@
-a{
-    color:DeepPink;
-    font-size: 25px;
-}
-ul > li{
-    list-style: none;
-}
-.button {
-    background-color: Black;
-    padding: 15px 32px;
-    
-    text-align: center;
-    text-decoration: none;
-    margin: 10px;
-    display: block;
-    border-radius: 50px;
-    font-size: 22px;
-    
-    
-    
+h1{ font-size: 60px;
+	text-align: center;
+ }
+ h3{ font-family: times new roman;
+ 	font-size: 20px;
 
-    
-}
-.button:hover {
-    background-color: #191970;
-    text-shadow: 1px 1px black; 
-    color: white;
-}
-body{
-    background-color: #00bfff;
-}
+ }
+ body{ background-color: black; 
+ 	color: white;
+ }
+ section{
+ 	background-color: white;
+ }
