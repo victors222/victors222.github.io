@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <link rel="stylesheet" type="text/css" href="style5.css">
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+       <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bree+Serif&display=swap" rel="stylesheet">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>$(function(){
+
+    $("#botao").click(function(){
+        let valor1 = $("#val1").val();
+        let valor2 = $("#val2").val();
+        let ope = $("#operação").val();
+        $("#resultado").text("Resultado = " + calc(valor1,valor2,ope));
+    })
+    function calc (valor1, valor2, op)
+    {
+        valor1 = parseFloat(valor1);
+        valor2 = parseFloat(valor2);
+        switch(op)
+        {
+            case "Soma": return valor1 + valor2; break;
+            case "Subtração": return valor1 - valor2; break;
+            case "Multiplicação": return valor1 * valor2; break;
+            case "Divisão": return valor1/valor2; break;
+        }
+    }
+})</script>
+</head>
+<body>
+  <div class="container center Js_a">
+    <h1>Monte uma calculadora que receba dois valores numéricos e um operador aritmético. Sua calculadora deve realizar as seguintes operações: somar, subtrair, multiplicar e dividir.</h1><br>
+      <input type="number" id="val1" placeholder="Valor1">
+      <input type="number" id="val2" placeholder="Valor2">
+      <select id="operação">
+        <option>Soma</option>
+        <option>Subtração</option>
+        <option>Multiplicação</option>
+        <option>Divisão</option=>
+      </select>
+      <button type="button" id="botao" class="btn">Executar</button>
+      <p id="resultado"></p>
+      <br />
+      <li><a href="index.html" class="volt">Voltar</a></li>
+      <br />
+  </div>
+</body>
+</html>

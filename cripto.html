@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Criptografia</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style5.css">
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+       <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bree+Serif&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>$(function(){
+    $("#botao").click(function(){
+        let letras = $("#letras").val();
+        let rotacoes = $("#rotacoes").val();
+        rotacoes = parseInt(rotacoes);
+        $("#resultado").text(criptografia(letras,rotacoes));
+    })
+    function criptografia (letras, rotacoes){
+        let array_letras = letras.split(''); 
+        let array_alfabeto = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+        let tam_letras = array_letras.length;
+        let tam_alfabeto = array_alfabeto.length;
+        let i = 0;
+        let x = 0;
+        let a;
+        let aux;
+        while(x<tam_letras)
+        {
+          aux = array_letras[x];
+          while(i<tam_alfabeto)
+          {
+            if(array_alfabeto[i] == aux)
+            {
+              if((i+rotacoes)>tam_alfabeto)
+              {
+                a = i + rotacoes - tam_alfabeto;
+                array_letras[x] = array_alfabeto[a];
+              }
+              else if((i+rotacoes) == tam_alfabeto)
+              {
+                array_letras[x] = array_alfabeto[0];
+              }
+              else{
+                array_letras[x] = array_alfabeto[i+rotacoes];
+              }
+            }
+            i++;
+          }
+          i = 0;
+          x++;
+        } 
+        let string = array_letras.join('');
+        return string;
+    }
+})</script>
+</head>
+<body>
+  <div class="container center Js_a">
+   <h1>A Cifra de Rotação é uma técnica de criptografia que faz uma transposição de um caractere por outro. Para compreender como ele funciona veja este mapeamento de transposição onde não há rotação:</h1>
+    <h2>ENTRADA =  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br />ENTRADA = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</h2>
+    <h1>Basicamente, o caractere de entrada é o mesmo de saída, ou seja, o caractere A será substituído por A. Contudo, se for aplicado a rotação de três posições na saída o resultado será:</h1>
+    <h2>ENTRADA = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br />SAÍDA = X Y Z A B C D E F G H I J K L M N O P Q R S T U V W</h2>
+    <h1>Implemente um script que faça isso.</h1>
+    <input type="text" id="letras" placeholder="Sequeência de letras">
+    <input type="text" id="rotacoes" placeholder="Número de rotações">
+    <button type="button" id="botao" class="btn">Executar</button>
+    <p id="resultado"></p>
+    <br />
+    <li><a href="index.html" class="volt">Voltar</a></li>
+    <br />
+  </div>
+</body>
+</html>
